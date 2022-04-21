@@ -4,14 +4,9 @@ jobs:
   TruffleHog:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-        with:
-          path: prbranch
-          fetch-depth: 0
       - name: TruffleHog OSS
         uses: trufflesecurity/trufflehog@2ee7edf74b58a6fd41353789e6bfbff4601c478b
         with:
-          path: ./prbranch
+          path: ./
           base: ${{ github.event.repository.default_branch }}
           head: ${{ github.event.pull_request.head.sha }}
