@@ -4,8 +4,12 @@ jobs:
   TruffleHog:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - name: TruffleHog OSS
-        uses: trufflesecurity/trufflehog@2ee7edf74b58a6fd41353789e6bfbff4601c478b
+        uses: trufflesecurity/trufflehog@90137ecec1b63ac5fef2eba49fdae2c10cf1c3ff
         with:
           path: ./
           base: ${{ github.event.repository.default_branch }}
